@@ -1,5 +1,5 @@
 # 環境変数
-_env.py
+.env
 
-# その他
+# python
 __pycache__

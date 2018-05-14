@@ -1,6 +1,9 @@
-import _env
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-API_TOKEN = _env.SLACK_API
+import os
+
+API_TOKEN = os.environ['SLACK_API']
 DEFAULT_REPLY = 'モチモチモチモチモﾁﾓﾁﾓﾁﾓ(ﾉ)`ω´(ヾ)'
 PLUGINS = ['plugins']
 
