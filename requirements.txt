@@ -1,2 +1,1 @@
 slackbot
-gunicorn==19.3.0
