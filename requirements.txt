@@ -1,1 +1,3 @@
 slackbot
+sqlite3
+random
