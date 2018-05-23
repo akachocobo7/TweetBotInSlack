@@ -6,3 +6,6 @@ __pycache__
 
 # データセット
 tweets.csv
+
+# データベース
+*.db
