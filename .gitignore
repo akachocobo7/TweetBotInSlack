@@ -4,8 +4,5 @@
 # python
 __pycache__
 
-# データベース
-*.db
-
-# 実験用
+# データセット
 tweets.csv

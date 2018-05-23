@@ -9,7 +9,7 @@ if __name__ == "__main__":
     tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
 
     cnt = 0
-    MAXTWEETS = 10
+    MAXTWEETS = 100
     for text in csv_file["text"]:
         # RTはのぞく
         if "RT" in text:
@@ -23,9 +23,9 @@ if __name__ == "__main__":
         for word in result:
             # 名詞か形容詞の言葉だけ抽出
             if "名詞" in word or "形容詞" in word:
-                # print(word)
+                print(word)
                 word = word.split()
-                print(word[0])
+                # print(word[0])
 
         cnt += 1
         if cnt >= MAXTWEETS:

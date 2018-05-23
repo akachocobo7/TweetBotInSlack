@@ -24,8 +24,13 @@ if __name__ == "__main__":
     
 
     cnt = 0
-    MAXTWEETS = 100
+    MAXTWEETS = len(csv_file["text"])
+    # print(len(csv_file["text"]))
     for text in csv_file["text"]:
+        cnt += 1
+        if cnt > MAXTWEETS:
+            break
+
         # RTはのぞく
         if "RT" in text:
             continue
@@ -42,23 +47,16 @@ if __name__ == "__main__":
                 word = word.split()
                 # print(word[0])
 
-                # 数字だけの場合はのぞく
-                
-
-
-                
+                # 数字と英字を取りのぞく
+                tmp = re.sub("[0-9a-zA-Z]", "", word[0])
 
                 # すでにデータベースに入っているか検索
-                c.execute("SELECT * FROM words WHERE pos=?", (word[0],))
+                c.execute("SELECT * FROM words WHERE pos=?", (tmp,))
                 if c.fetchone() == None:
                     # 入っていない時は挿入
                     insert_sql = "INSERT INTO words (pos) VALUES (?)"
-                    insert_data = (word[0],)
+                    insert_data = (tmp,)
                     c.execute(insert_sql, insert_data)
-
-        cnt += 1
-        if cnt >= MAXTWEETS:
-            break
         
     # 変更を反映
     conn.commit()
