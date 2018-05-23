@@ -10,7 +10,7 @@ def motimoti(message):
 @respond_to("eliza")
 def eliza(message):
     # ファイルを開く
-    file = open('words.txt', 'r')
+    file = open("words.txt", "r")
 
     words = file.read()
     wordlist = words.split("\n")
@@ -19,7 +19,7 @@ def eliza(message):
     text = ""
     for _ in range(generateNumber):
         text += random.choice(wordlist)
-        
+
     message.reply(text)
 
     file.close()
