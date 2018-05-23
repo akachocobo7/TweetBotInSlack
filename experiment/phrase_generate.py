@@ -5,19 +5,17 @@ import random
 
 
 if __name__ == "__main__":
-    # データベースを開く
-    dbname = "words.db"
-    conn = sqlite3.connect(dbname)
-    c = conn.cursor()
+    # ファイルを開く
+    file = open('words.txt', 'r')
 
+    words = file.read()
+    wordlist = words.split("\n")
 
-    lists = [i for i in c.execute('select * from words')]
-
-    text = ""
     generateNumber = random.randint(2, 6)
-    for _ in generateNumber:
-        text += random.choice(lists)[0]
+    text = ""
+    for _ in range(generateNumber):
+        text += random.choice(wordlist)
+
     print(text)
 
-    # データベースを閉じる
-    conn.close()
+    file.close()
