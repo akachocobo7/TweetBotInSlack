@@ -1,4 +1,4 @@
-# TweetBot_in_Slack
+# TweetBotInSlack
 
 ツイートの文章から新しい語録を生み出すbotです。
 
